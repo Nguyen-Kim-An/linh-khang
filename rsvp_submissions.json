@@ -1,0 +1,37 @@
+[
+  {
+    "timestamp": "2026-09-26 16:27:27",
+    "name": "Khách thử nghiệm",
+    "message": "Chúc mừng Khang và Linh trăm năm hạnh phúc!",
+    "attending": "Có",
+    "ip": "127.0.0.1"
+  },
+  {
+    "timestamp": "2026-09-26 20:43:52",
+    "name": "Lam",
+    "message": "Chuc nam moi vui ve",
+    "attending": "Mình sẽ tham dự",
+    "ip": "127.0.0.1"
+  },
+  {
+    "timestamp": "2026-09-26 20:48:03",
+    "name": "Lam",
+    "message": "cmsn",
+    "attending": "Mình sẽ tham dự",
+    "ip": "127.0.0.1"
+  },
+  {
+    "timestamp": "2026-09-26 20:48:43",
+    "name": "a",
+    "message": "",
+    "attending": "Mình sẽ tham dự",
+    "ip": "127.0.0.1"
+  },
+  {
+    "timestamp": "2026-09-26 20:57:34",
+    "name": "Thao",
+    "message": "cmsn",
+    "attending": "Mình sẽ tham dự",
+    "ip": "127.0.0.1"
+  }
+]

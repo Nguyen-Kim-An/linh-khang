@@ -4196,7 +4196,13 @@
         letter-spacing: 1px;
         text-align: center;
       }
-      #POPUP1,
+      #POPUP1 {
+        width: 300px;
+        height: 350px;
+        right: 0px;
+        bottom: 0px;
+        margin: auto;
+      }
       #POPUP13 {
         width: 281px;
         height: 400px;
@@ -4205,17 +4211,20 @@
         margin: auto;
       }
       #IMAGE228 {
-        width: 258.793px;
-        height: 310px;
-        top: 45px;
-        left: 11.1035px;
+        width: 250px;
+        height: 250px;
+        top: 50px;
+        left: 25px;
       }
       #IMAGE228 > .ladi-image > .ladi-image-background {
-        width: 245.404px;
-        height: 534px;
-        top: -87px;
-        left: 1.6655px;
-        background-image: url("./assets/images/z7400244768939_e25899711db5b39ea4f4aa583fa675c7-20260105120218-6-q9z.jpg");
+        width: 100%;
+        height: 100%;
+        top: 0px;
+        left: 0px;
+        background-size: contain;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-image: url("./assets/images/sorted/qr.jpg");
       }
       #IMAGE232,
       #IMAGE232 > .ladi-image > .ladi-image-background {
@@ -4771,6 +4780,37 @@
       /* 7. ẢNH LỜI CẢM ƠN DƯỚI CHÂN TRANG (Thank you!) */
       #IMAGE96 > .ladi-image > .ladi-image-background {
         background-image: url("./assets/images/sorted/16.jpg") !important;
+      }
+
+      /* 8. MÃ QR MỪNG CƯỚI (POPUP1 - Gửi mừng cưới) */
+      #POPUP1 {
+        width: 300px !important;
+        height: 350px !important;
+        border-radius: 16px !important;
+        overflow: hidden !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25) !important;
+      }
+      #POPUP1 > .ladi-popup > .ladi-popup-background {
+        border-radius: 16px !important;
+      }
+      #IMAGE228 {
+        width: 250px !important;
+        height: 250px !important;
+        top: 50px !important;
+        left: 25px !important;
+      }
+      #IMAGE228 > .ladi-image {
+        border-radius: 10px !important;
+      }
+      #IMAGE228 > .ladi-image > .ladi-image-background {
+        width: 100% !important;
+        height: 100% !important;
+        top: 0px !important;
+        left: 0px !important;
+        background-size: contain !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-image: url("./assets/images/sorted/qr.jpg") !important;
       }
     </style>
   </head>

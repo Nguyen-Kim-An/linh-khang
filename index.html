@@ -2413,12 +2413,12 @@
         transform: rotate(8deg);
       }
       #PARAGRAPH61 {
-        top: 29.899px;
+        top: 10px;
         left: 0px;
       }
       #PARAGRAPH61 > .ladi-paragraph {
         font-family: VVRNIFlFTiBUVSUVEY;
-        font-size: 30px;
+        font-size: 33px;
         line-height: 1.3;
         color: rgb(102, 74, 44);
         text-align: center;
@@ -4340,7 +4340,7 @@
       }
     </style>
     <style id="wedding_envelope_style">
-      /* ===== FULL-SCREEN WEDDING COVER OVERLAY (THEME.PNG FULL VIEWPORT) ===== */
+      /* ===== FULL-SCREEN WEDDING COVER OVERLAY (THEME.PNG) ===== */
       #wedding-cover-overlay {
         position: fixed !important;
         top: 0 !important;
@@ -4349,13 +4349,21 @@
         height: 100vh !important;
         z-index: 999999999 !important;
         overflow: hidden !important;
-        background-color: #1a2a1c !important;
-        background-image: url("./assets/images/sorted/theme.png") !important;
-        background-size: cover !important;
-        background-position: center center !important;
-        background-repeat: no-repeat !important;
+        background-color: #141e12 !important;
         transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
                     transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+      }
+
+      /* Lớp ảnh nền chính */
+      #wedding-cover-overlay::before {
+        content: "" !important;
+        position: absolute !important;
+        inset: 0 !important;
+        background-image: url("./assets/images/sorted/theme.png") !important;
+        background-position: center center !important;
+        background-repeat: no-repeat !important;
+        background-size: cover !important;
+        pointer-events: none !important;
       }
 
       #wedding-cover-overlay.cover-closing {
@@ -4368,7 +4376,7 @@
         display: none !important;
       }
 
-      /* Lớp gradient tối rất nhẹ trên toàn ảnh để tạo chiều sâu */
+      /* Lớp gradient nhẹ tạo chiều sâu */
       .cover-overlay-gradient {
         position: absolute !important;
         inset: 0 !important;
@@ -4425,22 +4433,78 @@
         border-color: rgba(255, 255, 255, 0.95) !important;
       }
 
-      /* Định vị chuẩn xác theo tỷ lệ màn hình 1672/941 */
-      @media (max-aspect-ratio: 1672/941) {
-        #cover-wax-seal-hotspot {
-          left: 50vw !important;
-          top: 72.7vh !important;
-          width: clamp(65px, 12vh, 120px) !important;
-          height: clamp(65px, 12vh, 120px) !important;
+      /* Khóa cuộn trang khi đang hiển thị cover mở đầu */
+      html.has-wedding-cover,
+      body.has-wedding-cover {
+        overflow: hidden !important;
+        height: 100% !important;
+      }
+
+      /* ===== DESKTOP (LANDSCAPE VIEWPORT) ===== */
+      @media (min-width: 769px) and (min-aspect-ratio: 1/1) {
+        #wedding-cover-overlay::before {
+          background-size: cover !important;
+        }
+
+        @media (max-aspect-ratio: 1672/941) {
+          #cover-wax-seal-hotspot {
+            left: 50vw !important;
+            top: 72.7vh !important;
+            width: clamp(65px, 12vh, 120px) !important;
+            height: clamp(65px, 12vh, 120px) !important;
+          }
+        }
+
+        @media (min-aspect-ratio: 1672/941) {
+          #cover-wax-seal-hotspot {
+            left: 50vw !important;
+            top: calc(50vh + 12.76vw) !important;
+            width: clamp(70px, 6.8vw, 130px) !important;
+            height: clamp(70px, 6.8vw, 130px) !important;
+          }
         }
       }
 
-      @media (min-aspect-ratio: 1672/941) {
+      /* ===== MOBILE / PORTRAIT (IPHONE 16 PRO MAX, IPHONE 15/14, ANDROID...) ===== */
+      @media (max-width: 768px), (max-aspect-ratio: 1/1) {
+        #wedding-cover-overlay {
+          background: linear-gradient(
+            to bottom,
+            #1e2917 0%,
+            #192616 22%,
+            #131e11 50%,
+            #0f170d 78%,
+            #0a1208 100%
+          ) !important;
+        }
+
+        #wedding-cover-overlay::before {
+          background-size: auto 57vh !important;
+          -webkit-mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 21.5vh,
+            black 27vh,
+            black 73vh,
+            transparent 78.5vh,
+            transparent 100%
+          ) !important;
+          mask-image: linear-gradient(
+            to bottom,
+            transparent 0%,
+            transparent 21.5vh,
+            black 27vh,
+            black 73vh,
+            transparent 78.5vh,
+            transparent 100%
+          ) !important;
+        }
+
         #cover-wax-seal-hotspot {
           left: 50vw !important;
-          top: calc(50vh + 12.76vw) !important;
-          width: clamp(70px, 6.8vw, 130px) !important;
-          height: clamp(70px, 6.8vw, 130px) !important;
+          top: 62.9vh !important;
+          width: clamp(60px, 8.5vh, 85px) !important;
+          height: clamp(60px, 8.5vh, 85px) !important;
         }
       }
     </style>
@@ -4814,7 +4878,7 @@
       }
     </style>
   </head>
-  <body class="lazyload">
+  <body class="lazyload has-wedding-cover">
     <!-- MÀN HÌNH COVER FULL-SCREEN (THEME.PNG PHỦ TOÀN BỘ VIEWPORT) -->
     <div id="wedding-cover-overlay">
       <div class="cover-overlay-gradient"></div>
@@ -4836,6 +4900,10 @@
 
         function openWeddingFromCover() {
           if (!overlay) return;
+
+          // Cho phép cuộn trang sau khi mở thiệp
+          document.documentElement.classList.remove("has-wedding-cover");
+          document.body.classList.remove("has-wedding-cover");
 
           // Phát nhạc nền đám cưới ngay khi khách chạm vào con dấu
           if (audio) {
@@ -4955,8 +5023,7 @@
           </div>
           <div id="PARAGRAPH61" class="ladi-element data-aos">
             <div class="ladi-paragraph">
-              " Vợ chồng nghĩa nặng tình sâu<br />Thương nhau đến lúc bạc đầu
-              còn thương."
+              "Khi tình yêu hòa quyện hai con người thành một, họ trở thành hai phần của cùng một định mệnh."
             </div>
           </div>
         </div>

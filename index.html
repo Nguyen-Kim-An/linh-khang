@@ -2339,7 +2339,7 @@
         text-transform: uppercase;
         text-align: left;
       }
-      #HEADLINE315.ladi-animation > .ladi-headline{
+      #HEADLINE315.ladi-animation > .ladi-headline {
         transform: translateX(-15px);
       }
       #HEADLINE313.ladi-animation > .ladi-headline,
@@ -4202,8 +4202,8 @@
         text-align: center;
       }
       #POPUP1 {
-        width: 300px;
-        height: 350px;
+        width: 390px !important;
+        height: 430px !important;
         right: 0px;
         bottom: 0px;
         margin: auto;
@@ -4216,10 +4216,10 @@
         margin: auto;
       }
       #IMAGE228 {
-        width: 250px;
-        height: 250px;
-        top: 50px;
-        left: 25px;
+        width: 350px !important;
+        height: 350px !important;
+        top: 40px !important;
+        left: 20px !important;
       }
       #IMAGE228 > .ladi-image > .ladi-image-background {
         width: 100%;
@@ -4229,7 +4229,7 @@
         background-size: contain;
         background-position: center center;
         background-repeat: no-repeat;
-        background-image: url("./assets/images/sorted/qr.jpg");
+        background-image: url("./assets/images/sorted/qr1.png");
       }
       #IMAGE232,
       #IMAGE232 > .ladi-image > .ladi-image-background {
@@ -4350,8 +4350,9 @@
         z-index: 999999999 !important;
         overflow: hidden !important;
         background-color: #141e12 !important;
-        transition: opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
-                    transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        transition:
+          opacity 0.7s cubic-bezier(0.4, 0, 0.2, 1),
+          transform 0.7s cubic-bezier(0.4, 0, 0.2, 1) !important;
       }
 
       /* Lớp ảnh nền chính */
@@ -4674,10 +4675,10 @@
         border-radius: 16px !important;
       }
       #IMAGE228 {
-        width: 250px !important;
-        height: 250px !important;
-        top: 50px !important;
-        left: 25px !important;
+        width: 350px !important;
+        height: 350px !important;
+        top: 0px !important;
+        left: -25px !important;
       }
       #IMAGE228 > .ladi-image {
         border-radius: 10px !important;
@@ -4690,7 +4691,7 @@
         background-size: contain !important;
         background-position: center center !important;
         background-repeat: no-repeat !important;
-        background-image: url("./assets/images/sorted/qr.jpg") !important;
+        background-image: url("./assets/images/sorted/qr1.png") !important;
       }
     </style>
 
@@ -4907,14 +4908,17 @@
 
           // Phát nhạc nền đám cưới ngay khi khách chạm vào con dấu
           if (audio) {
-            audio.play().then(function () {
-              if (musicBtn) {
-                musicBtn.textContent = "🔊";
-                musicBtn.style.animation = "rotate 2s linear infinite";
-              }
-            }).catch(function (e) {
-              console.log("Audio autoplay note:", e);
-            });
+            audio
+              .play()
+              .then(function () {
+                if (musicBtn) {
+                  musicBtn.textContent = "🔊";
+                  musicBtn.style.animation = "rotate 2s linear infinite";
+                }
+              })
+              .catch(function (e) {
+                console.log("Audio autoplay note:", e);
+              });
           }
 
           // Hiệu ứng chuyển cảnh mở thiệp mượt mà
@@ -4928,14 +4932,17 @@
         if (hotspot) {
           hotspot.addEventListener("click", openWeddingFromCover);
           // Hỗ trợ cảm ứng trên điện thoại mượt mà nhất
-          hotspot.addEventListener("touchend", function (e) {
-            e.preventDefault();
-            openWeddingFromCover();
-          }, { passive: false });
+          hotspot.addEventListener(
+            "touchend",
+            function (e) {
+              e.preventDefault();
+              openWeddingFromCover();
+            },
+            { passive: false },
+          );
         }
       })();
     </script>
-
 
     <div class="ladi-wraper">
       <div id="BODY_BACKGROUND" class="ladi-section">
@@ -5023,7 +5030,8 @@
           </div>
           <div id="PARAGRAPH61" class="ladi-element data-aos">
             <div class="ladi-paragraph">
-              "Khi tình yêu hòa quyện hai con người thành một, họ trở thành hai phần của cùng một định mệnh."
+              "Khi tình yêu hòa quyện hai con người thành một, họ trở thành hai
+              phần của cùng một định mệnh."
             </div>
           </div>
         </div>
@@ -6916,10 +6924,10 @@
         "COUNTDOWN_ITEM19": { "a": "countdown_item", "bY": "minute" },
         "COUNTDOWN_ITEM20": { "a": "countdown_item", "bY": "seconds" },
         "COUNTDOWN5": {
-  "a": "countdown",
-  "bX": "endtime",
-  "bT": 1794792600000
-},
+          "a": "countdown",
+          "bX": "endtime",
+          "bT": 1794792600000
+        },
         "BUTTON_TEXT33": {
           "option.is_product_mapping_name_custom": true,
           "a": "headline"
